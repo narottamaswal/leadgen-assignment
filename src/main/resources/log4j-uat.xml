@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+
+	<Properties>
+		<property name="basePath">/var/log/bnb-inventory-management-db</property>
+	</Properties>
+	<Appenders>
+	<Console name="LogInJSON" target="SYSTEM_OUT">
+			 <JsonTemplateLayout eventTemplateUri="classpath:LogstashJsonEventLayoutV1.json"/>
+	</Console>
+		<RollingFile name="LogToJson"
+					 fileName="${basePath}/InventoryManagementDB_Logs.log"
+					 filePattern="${basePath}/$${date:yyyy-MM}/InventoryManagement-%d{MM-dd-yyyy}-%i.log.gz">
+			<JsonTemplateLayout eventTemplateUri="classpath:LogstashJsonEventLayoutV1.json"/>
+			<Policies>
+				<TimeBasedTriggeringPolicy />
+			</Policies>
+		</RollingFile>
+	</Appenders>
+	<Loggers>
+		<Logger name="in.paynearby.inventory" level="info" additivity="false">
+			<AppenderRef ref="LogToJson"/>
+			<AppenderRef ref="LogInJSON"/>
+		</Logger>
+		<Root level="info">
+			<AppenderRef ref="LogToJson"/>
+			<AppenderRef ref="LogInJSON"/>
+		</Root>
+	</Loggers>
+</Configuration>
