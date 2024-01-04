@@ -1,0 +1,72 @@
+{
+	"info": {
+		"_postman_id": "7d01dda8-f1cf-4ed7-aa49-a68ebacc7675",
+		"name": "Lead Assignment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15609834"
+	},
+	"item": [
+		{
+			"name": "Create lead",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"leadId\":\"1234\",\r\n    \"firstName\":\"Narottam\",\r\n    \"middleName\":\"\",\r\n    \"lastName\":\"Aswal\",\r\n    \"mobileNumber\":\"9867893889\",\r\n    \"email\":\"narottam98678@gmail.com\",\r\n    \"gender\":\"Male\",\r\n    \"DOB\":\"12/07/2000\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://leadgen-assignment-production.up.railway.app/lead/create",
+					"protocol": "https",
+					"host": [
+						"leadgen-assignment-production",
+						"up",
+						"railway",
+						"app"
+					],
+					"path": [
+						"lead",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get lead",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"mobileNumber\": \"9867893889\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://leadgen-assignment-production.up.railway.app/lead/get",
+					"protocol": "https",
+					"host": [
+						"leadgen-assignment-production",
+						"up",
+						"railway",
+						"app"
+					],
+					"path": [
+						"lead",
+						"get"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
